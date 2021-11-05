@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static',filename='upload.css') }}">
+    </head>
+    <body>
+        <h2>Upload Your Image</h2><br>
+        <!-- <p class="lead">No Plugins <b>Just Javascript</b></p> -->
+
+        <!-- Upload  -->
+        <form action="/upload" method="post" id="file-upload-form" class="uploader">
+        <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+        <label for="file-upload" id="file-drag">
+            <img id="file-image" src="#" alt="Preview" class="hidden">
+            <div id="start">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <div>Select a file or drag here</div>
+            <div id="notimage" class="hidden">Please select an image</div>
+            <p>{{msg}}</p>
+            <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+            </div>
+            <div id="response" class="hidden">
+            <div id="messages"></div>
+            <progress class="progress" id="file-progress" value="0">
+                <span>0</span>%
+            </progress>
+            </div>
+        </label>
+        <input type="text" name="src" id='img_src'>
+        <input type="submit" value="Upload" class='submit'>
+        </form>
+        <script src="{{url_for('static', filename='upload.js')}}"></script>
+    </body>
+</html>
